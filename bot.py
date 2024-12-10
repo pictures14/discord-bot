@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 from datetime import datetime
+import os
 
 # 봇 초기화
 intents = discord.Intents.default()
@@ -189,4 +190,5 @@ async def show_application_list(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
 # 봇 실행
-bot.run("YOUR_BOT_TOKEN")
+bot_token = os.getenv("DISCORD_TOKEN")
+bot.run(bot_token)
